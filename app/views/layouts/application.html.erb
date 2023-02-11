@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OrderSite</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+           </button>
+          
+         <div class="border border-dark" style="padding:10px">
+           <h3>LOGO<h3>
+         </div>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+
+    <div class="d-flex align-items-end">
+      <% if admin_signed_in? %>
+     
+      <div class="p-2">
+        <%= link_to admin_items_path do %>商品一覧
+        <% end %>
+        </div>
+      <div class="p-2">会員一覧</div>
+      <div class="p-2">注文履歴一覧</div>
+      <div class="p-2">ジャンル一覧</div>
+      <div class="p-2">ログアウト</div>
+      <% else %>
+      <div class="p-2">About</div>
+      <div class="p-2">
+        <%= link_to admin_items_path do %>商品一覧
+        <% end %>
+        </div>
+      <div class="p-2">新規登録</div>
+      <div class="p-2">ログイン</div>
+      <% end %>
+    </div>
+    
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+         
+     </div>
+   </div>
+  </nav>
+ </header>
+      
+      
+      <body>
+     <%= yield %>
+      </body>
+
+</html>
