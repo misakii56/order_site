@@ -34,7 +34,10 @@
         </div>
       <div class="p-2">会員一覧</div>
       <div class="p-2">注文履歴一覧</div>
-      <div class="p-2">ジャンル一覧</div>
+      <div class="p-2">
+        <%= link_to admin_genres_path do %>ジャンル一覧
+        <% end %>
+        </div>
       <div class="p-2">ログアウト</div>
       <% else %>
       <div class="p-2">About</div>
