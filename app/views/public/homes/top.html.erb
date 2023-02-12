@@ -1,25 +1,26 @@
 <div class="container">
-
-<h5>ようこそ、ながのCAKEへ！<br>
+<div class="row">
+  <h5>ようこそ、ながのCAKEへ！<br>
 このサイトは、ケーキ販売のECサイトになります。<br>
 会員でない方も商品の閲覧はできますが、<br>
 購入には会員登録が必要になります。</h5>
 </div>
+
 <h3>新着商品</h3>
 
 <% @items.each do |item| %>
 <div class="row">
-  <div class="col-md-3">
+  <div class="col">
   <div class="p-1">
     <% if item.image.attached? %>
-    <%= image_tag item.image, size: "100x100" %>
+    <%= image_tag item.image, size: "150x150" %>
   <% else %>
-    <%= image_tag 'no_image', size: "100x100" %>
+    <%= image_tag 'no_image', size: "150x150" %>
   <% end %>
   </div>
 
 <p><%= item.name %></p>
-<p><%= item.price %></p>
+<p>¥<%= item.price %></p>
 <% end %>
 </div>
 </div>
