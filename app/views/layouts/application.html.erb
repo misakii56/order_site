@@ -38,7 +38,9 @@
         <%= link_to admin_genres_path do %>ジャンル一覧
         <% end %>
         </div>
-      <div class="p-2">ログアウト</div>
+      <div class="p-2"><%= link_to destroy_admin_session_path, method: :delete do %>ログアウト
+      <% end %></div>
+      
       <% else %>
       <div class="p-2">About</div>
       <div class="p-2">

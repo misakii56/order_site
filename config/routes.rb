@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    get 'homes/top'
+    root to: 'homes#top'
+  end
+  namespace :admin do
     resources :genres
     resources :items
     resources :customers
