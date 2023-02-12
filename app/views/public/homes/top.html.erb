@@ -18,8 +18,8 @@
     <%= image_tag 'no_image', size: "150x150" %>
   <% end %>
   </div>
-
-<p><%= item.name %></p>
+<td><%= link_to item.name, admin_item_path(item.id) %></td>
+<p><%= link_to item.name %></p>
 <p>¥<%= item.price %></p>
 <% end %>
 </div>
