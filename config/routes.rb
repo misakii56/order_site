@@ -2,13 +2,9 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :admin do
     resources :genres
     resources :items
+    resources :customers
   end
 # 顧客用
 # URL /customers/sign_in ...
