@@ -15,20 +15,34 @@
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
            </button>
-          
+
          <div class="border border-dark" style="padding:10px">
            <h3>LOGO<h3>
          </div>
-  
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     </ul>
 
     <div class="d-flex align-items-end">
-      <% if admin_signed_in? %>
-     
+      <% if customer_signed_in? %>
+  <!--ここからカスタマー用に変える-->
       <div class="p-2">
+        <%= link_to admin_items_path do %>商品一覧
+        <% end %>
+        </div>
+      <div class="p-2">会員一覧</div>
+      <div class="p-2">注文履歴一覧</div>
+      <div class="p-2">
+        <%= link_to admin_genres_path do %>ジャンル一覧
+        <% end %>
+        </div>
+      <div class="p-2"><%= link_to destroy_customer_session_path, method: :delete do %>ログアウト
+      <% end %></div>
+  <!--ここまで-->
+      <% elsif admin_signed_in? %>
+       <div class="p-2">
         <%= link_to admin_items_path do %>商品一覧
         <% end %>
         </div>
@@ -51,20 +65,20 @@
       <div class="p-2">ログイン</div>
       <% end %>
     </div>
-    
+
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
       </nav>
-         
+
      </div>
    </div>
   </nav>
  </header>
-      
-      
+
+
       <body>
      <%= yield %>
       </body>
