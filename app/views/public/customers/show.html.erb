@@ -1,18 +1,30 @@
-<p>ようこそ、<%= @customer.last_name %>さん！</p>
 
-<h4>商品一覧</h4>
-<% @items.each do |item| %>
 
-    <% if item.image.attached? %>
-    <%= image_tag item.image, size: "150x150" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "150x150" %>
-  <% end %>
-  </div>
-<p><%= link_to item.name, admin_item_path(item.id) %></p>
+<h4>登録情報</h4>
+ <div><%= link_to "編集する", edit_public_customer_path(@customer.id), class:"btn btn-success" %></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div>氏名</div>
+      <div>カナ</div>
+      <div>郵便番号</div>
+      <div>住所</div>
+      <div>電話番号</div>
+      <div>メールアドレス</div>
+    </div>
+    <div class="col-md-6">
 
-<p>¥<%= item.price %></p>
-<% end %>
-<div class="d-flex justify-content-center">
-<%= paginate @items %>
-</div>
+      <div><%= @customer.last_name %><%= @customer.first_name %></div>
+      <div><%= @customer.last_name_kana %><%= @customer.first_name_kana %></div>
+      <div><%= @customer.postal_code %></div>
+      <div><%= @customer.address %></div>
+      <div><%= @customer.telephone_number %></div>
+      <div><%= @customer.email %></div>
+     
+
+      </div>
+      </div>
+      
+      </div>
+      <h4>配送先</h4>
+      <h4>注文履歴</h4>

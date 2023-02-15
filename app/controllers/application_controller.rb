@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
- 
+
 
   # deviseコントローラーにストロングパラメータを追加する
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_homes_top_path
     when Customer
-      public_root_path
+      root_path
     end
   end
 end
