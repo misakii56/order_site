@@ -2,6 +2,7 @@
 
 class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
   def change
+    
     create_table :customers do |t|
       ## Database authenticatable
   t.string :last_name, null: false
@@ -43,7 +44,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
 
       t.timestamps null: false
     end
-
+    add_column :customers, :is_deleted, :boolean, default: false
     add_index :customers, :email,                unique: true
     add_index :customers, :reset_password_token, unique: true
     # add_index :customers, :confirmation_token,   unique: true

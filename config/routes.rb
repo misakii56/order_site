@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+ 
 root to: 'public/homes#top'
 
  
   namespace :public do
+    resources :addresses
     get 'homes/top'
     #root to: 'homes#top'
     #root to: 'public/sessions#new'
