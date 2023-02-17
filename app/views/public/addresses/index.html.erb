@@ -2,11 +2,32 @@
 <p>郵便番号(ハイフンなし)</p>
 <p>住所</p>
 <p>宛名</p>
-<%= form_with model: @address, url:public_addresses_path do |f| %>
- 
+<%= form_with model: @address, url: public_addresses_path(@customer.id), method: :po do |f| %>
 
 <p><%= f.text_field :postal_code %></p>
 <p><%= f.text_field :address %></p>
 <p><%= f.text_field :name %></p>
 <%= f.submit '新規登録', class:"btn btn-success" %>
 <% end %>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+        <th scope="col">郵便番号</th>
+        <th scope="col">住所</th>
+        <th scope="col">宛名</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      <% @addresses.each do |address| %>
+      <tr>
+
+          <td><%= address.postal_code %></td>
+          <td><%= address.address %></td>
+          <td><%= address.name %></td>
+
+      </tr>
+      <% end %>
+  </tbody>
+  </table>
