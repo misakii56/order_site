@@ -33,14 +33,15 @@
           <%= link_to public_customer_path(current_customer.id) do %>マイページ
           <% end %>
           </div>
-        <div class="p-2">商品一覧 </div>
+        <div class="p-2"><%= link_to public_items_path do %>商品一覧
+        <% end %></div>
       <div class="p-2">カート</div>
       <div class="p-2"><%= link_to destroy_customer_session_path, method: :delete do %>ログアウト
       <% end %></div>
   <!--ここまで-->
       <% elsif admin_signed_in? %>
        <div class="p-2">
-        <%= link_to admin_items_path do %>商品一覧
+        <%= link_to public_items_path do %>商品一覧
         <% end %>
         </div>
       <div class="p-2">
@@ -61,7 +62,7 @@
       <% end %>
       </div>
       <div class="p-2">
-        <%= link_to admin_items_path do %>商品一覧
+        <%= link_to public_items_path do %>商品一覧
         <% end %>
         </div>
       <div class="p-2"><%= link_to new_customer_registration_path do %>新規登録

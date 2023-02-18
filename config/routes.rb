@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
  
+ 
 root to: 'public/homes#top'
 
  
   namespace :public do
+    resources :items
     resources :addresses
     get 'homes/top'
     #root to: 'homes#top'
