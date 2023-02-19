@@ -1,1 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-10">
 <h4>ショッピングカート</h4>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">商品名</th>
+        <th scope="col">単価(税込)</th>
+        <th scope="col">数量</th>
+        <th scope="col">小計</th>
+        <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @cart_items.each do |cart_item| %>
+      <tr>
+          <td><% if cart_item.item.image.attached? %>
+                <%= image_tag cart_item.item.image, size: "70x50" %>
+                <% else %>
+                <%= image_tag 'no_image', size: "70x50" %>
+                <% end %>
+        </td>
+          <td><%= cart_item.item.name %></td>
+          <td><%= cart_item.item.with_tax_price%></td>
+          <td><%= cart_item.amount %></td>
+          <td><%= cart_item.subtotal%></td>
+           <% @total +=  cart_item.subtotal %>
+           <td></td>
+      </tr>
+      <% end %>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  </div>
