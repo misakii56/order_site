@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
- 
+
+
  
 root to: 'public/homes#top'
 
- 
+
   namespace :public do
+     get 'orders/new'
+    get 'orders/log'
+    get 'orders/thanx'
+    resources :orders
     resources :items
     resources :addresses
     get 'homes/top'
@@ -12,8 +17,8 @@ root to: 'public/homes#top'
     #root to: 'public/sessions#new'
     get 'homes/about'
     resources :customers
-    get 'customers/quit'
-    get 'customers/out'
+    get 'customers/quit' => 'customers#quit', as: 'quit'
+    patch 'customers/out' => 'customers#out', as: 'out'
   end
   namespace :admin do
     get 'homes/top'
