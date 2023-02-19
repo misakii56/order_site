@@ -46,7 +46,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-     binding.pry
      @order = Order.new(order_params)
      @address.save
      redirect_to public_orders_log_path
