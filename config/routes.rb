@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
 
- 
+
 root to: 'public/homes#top'
 
 
   namespace :public do
      get 'orders/new'
     get 'orders/log'
+    post 'orders/log' => 'orders#log'
     get 'orders/thanx'
     resources :orders
     resources :items
