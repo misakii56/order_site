@@ -11,8 +11,16 @@ class Public::CartItemsController < ApplicationController
     @customer = current_customer
     @total = 0
   end
+  def update
+    cart_item = current_customer.cart_items
+    cart_item.update
+    redirect_to public_cart_items_path
+  end
 
   def destroy
+    cart_item = current_customer.cart_items.find(params[:id])  # データ（レコード）を1件取得
+    cart_item.destroy 
+    redirect_to public_cart_items_path
   end
 
   def all_destroy
