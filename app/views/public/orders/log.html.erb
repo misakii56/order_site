@@ -1,2 +1,4 @@
-<h1>Public::Orders#log</h1>
-<p>Find me in app/views/public/orders/log.html.erb</p>
+<h4>注文情報確認</h4>
+<h5>支払方法</h5><p><%= @order.payment_method_i18n %></p>
+<h5>お届け先</h5>
+<p>〒<%= @order.postal_code %></p><p><%= @order.address %><%= @order.name %></p>

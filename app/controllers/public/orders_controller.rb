@@ -1,4 +1,8 @@
 class Public::OrdersController < ApplicationController
+  def confirm
+  @order = Order.new(order_params)
+  end
+
   def new
     @order = Order.new
     @customer = current_customer
@@ -6,11 +10,9 @@ class Public::OrdersController < ApplicationController
 
   def log
     @customer = current_customer
-    
-    @order = Order.new
+    @order = Order.new(order_params)
     @order.customer_id=current_customer.id
     @order.shopping_cost=800
-    @order.payment_method=params[:order][:payment_method]
     if params[:order][:select_address]=="0"
       @order.postal_code=current_customer.postal_code
       @order.address=current_customer.address
@@ -44,6 +46,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+     binding.pry
      @order = Order.new(order_params)
      @address.save
      redirect_to public_orders_log_path
