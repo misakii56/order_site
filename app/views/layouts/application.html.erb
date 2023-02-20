@@ -28,7 +28,7 @@
     <div class="d-flex align-items-end">
       <% if customer_signed_in? %>
   <!--ここからカスタマー用に変える-->
-      <div class="p-2">ようこそ、<%= @customer.last_name %>さん！</div>
+      <div class="p-2">ようこそ、<%= current_customer.last_name %>さん！</div>
         <div class="p-2">
           <%= link_to public_customer_path(current_customer.id) do %>マイページ
           <% end %>
@@ -55,7 +55,7 @@
         </div>
       <div class="p-2"><%= link_to destroy_admin_session_path, method: :delete do %>ログアウト
       <% end %></div>
-      
+
       <% else %>
       <div class="p-2">
         <%= link_to public_homes_about_path do %>About

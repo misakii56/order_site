@@ -9,6 +9,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def log
+    @cart_items = current_customer.cart_items
+      @total = 0
     @customer = current_customer
     @order = Order.new(order_params)
     @order.customer_id=current_customer.id
