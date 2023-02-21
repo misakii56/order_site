@@ -31,6 +31,13 @@
       <% end %>
   </tbody>
   </table>
+  
+  <table>
+    <tr><th>送料</th><td><%= @order.shopping_cost %></td></tr>
+    <tr><th>商品合計</th><td></td></tr>
+    <tr><th>請求金額</th><td></td></tr>
+  </table>
+  
 </div>
 </div>
 <h5>支払方法</h5><p><%= @order.payment_method_i18n %></p>
@@ -38,4 +45,3 @@
 <p>〒<%= @order.postal_code %></p><p><%= @order.address %><%= @order.name %></p>
 </div>
 
-<%= @order.shopping_cost %>
