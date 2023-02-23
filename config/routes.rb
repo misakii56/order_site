@@ -2,12 +2,12 @@ Rails.application.routes.draw do
 
 
 
-  
+
 root to: 'public/homes#top'
 
 
   namespace :public do
-    delete 'cart_items/all_destroy'
+    delete 'cart_items/destroy_all'
     resources :cart_items
     get 'orders/new'
     post 'orders/log' => 'orders#log'

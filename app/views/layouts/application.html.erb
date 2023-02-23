@@ -35,7 +35,8 @@
           </div>
         <div class="p-2"><%= link_to public_items_path do %>商品一覧
         <% end %></div>
-      <div class="p-2">カート</div>
+      <div class="p-2"><%= link_to public_cart_items_path do %>カート
+      <% end %></div>
       <div class="p-2"><%= link_to destroy_customer_session_path, method: :delete do %>ログアウト
       <% end %></div>
   <!--ここまで-->
@@ -48,7 +49,8 @@
         <%= link_to admin_customers_path do %>会員一覧
         <% end %>
         </div>
-      <div class="p-2">注文履歴一覧</div>
+      <div class="p-2"><%= link_to admin_homes_top_path do %>注文履歴一覧
+      <% end %></div>
       <div class="p-2">
         <%= link_to admin_genres_path do %>ジャンル一覧
         <% end %>

@@ -1,7 +1,7 @@
 <h4>注文情報確認</h4>
 <div class="container">
     <div class="row">
-        <div class="col-10">
+        <div class="col-9">
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -32,16 +32,27 @@
   </tbody>
   </table>
   
-  <table>
+  </div>
+<div class="col-3">
+
+    <table class="table">
+  <thead class="thead-light">
     <tr><th>送料</th><td><%= @order.shopping_cost %></td></tr>
     <tr><th>商品合計</th><td></td></tr>
     <tr><th>請求金額</th><td></td></tr>
+    </thead>
   </table>
-  
-</div>
-</div>
-<h5>支払方法</h5><p><%= @order.payment_method_i18n %></p>
+  </div>
+  </div>
+ <div class="row">
+        <div class="col-3">
+<h5>支払方法</h5>
 <h5>お届け先</h5>
-<p>〒<%= @order.postal_code %></p><p><%= @order.address %><%= @order.name %></p>
 </div>
+        <div class="col-9">
+<p><%= @order.payment_method_i18n %></p>
+<p>〒<%= @order.postal_code %> <%= @order.address %><%= @order.name %></p>
+</div>
+</div>
+
 
