@@ -12,7 +12,7 @@ root to: 'public/homes#top'
     get 'orders/new'
     post 'orders/log' => 'orders#log'
     get 'orders/thanx'
-    resources :orders, only: [:new, :index, :show]
+    resources :orders, only: [:new, :index, :show, :create]
     resources :items
     resources :addresses
     get 'homes/top'

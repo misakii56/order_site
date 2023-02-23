@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
 
   def log
     @cart_items = current_customer.cart_items
-      @total = 0
+     @total = 0
     @customer = current_customer
     @order = Order.new(order_params)
     @order.customer_id=current_customer.id
@@ -42,6 +42,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.cart_items
+    @order = current_customer.order.id
   end
 
   def show
@@ -49,11 +51,22 @@ class Public::OrdersController < ApplicationController
 
   def create
      @order = Order.new(order_params)
-     @address.save
-     redirect_to public_orders_log_path
+     @order.customer_id = current_customer.id
+     if @order.save
+         current_customer.cart_items.each do |cart_item|
+           order_product = OrderProduct.new
+           order_product.item_id = cart_item.item_id
+           order_product.order_id = @order.id
+           order_product.amount = cart_item.amount
+           order_product.price = cart_item.item.price
+           order_product.save
+         end
+         current_customer.cart_items.destroy_all
+         redirect_to public_orders_thanx_path
+     end
   end
   private
   def order_params
-    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shopping_cost, :total_payment, :payment_method)
+    params.require(:order).permit(:postal_code, :address, :name, :shopping_cost, :total_payment, :payment_method)
   end
 end
