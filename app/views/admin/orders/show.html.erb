@@ -3,6 +3,13 @@
 <p>注文日</p>
 <p>配送先</p>
 <p>支払方法</p>
+<p><%= @order_product.name %></p>
+<p><%= @order_product.created_at.strftime("%Y/%m/%d") %></p>
+<p>〒<%= @order_product.postal_code %> <%= @order_product.address %><p><%= @order_product.name %></p></p>
+<p><%= @order_product.payment_method_i18n %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -13,6 +20,16 @@
     </tr>
     </thead>
     <tbody>
-      <td></td>
+      <tr>
+           <% @order_product.order_products.each do |order_item| %>
+          <td><%= order_item.item.name %></td>
+          <td><%= order_item.price %></td>
+          <td><%= order_item.amount %></td>
+          <td><%= order_item.subtotal %></td>
+           <% end %>
+      </tr>
     </tbody>
   </table>
+  </div>
+  </div>
+  </div>

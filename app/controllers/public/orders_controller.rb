@@ -41,8 +41,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-     @order_product = Order.find(params[:id])
-     @order_products = @order_product.order_products
+         @order_product = Order.find(params[:id])
+         @order_products = @order_product.order_products
   end
 
   def create
@@ -54,18 +54,18 @@ class Public::OrdersController < ApplicationController
            order_product.item_id = cart_item.item_id
            order_product.order_id = @order.id
            order_product.amount = cart_item.amount
-           order_product.price = cart_item.item.with_tax_price
+           order_product.price = cart_item.item.price
            order_product.save
          end
          current_customer.cart_items.destroy_all
          redirect_to public_orders_thanx_path
      end
   end
-
-   def index
+  
+  def index
     @order_products = current_customer.orders
   end
-
+  
   private
   def order_params
     params.require(:order).permit(:postal_code, :address, :name, :shopping_cost, :total_payment, :payment_method)
