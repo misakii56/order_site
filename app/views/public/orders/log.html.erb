@@ -56,7 +56,7 @@
 </div>
 
 <%= form_with model: @order, url: public_orders_path, method: :post do |f| %>
-<%= f.hidden_field :total_payment, :value => @total+@order.shopping_cost %>
+<%= f.hidden_field :total_payment, :value => @total %>
 <%= f.hidden_field :postal_code, :value => @order.postal_code %>
 <%= f.hidden_field :address, :value => @order.address %>
 <%= f.hidden_field :name, :value => @order.name %>

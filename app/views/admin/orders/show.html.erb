@@ -31,5 +31,13 @@
     </tbody>
   </table>
   </div>
+  <div class="col-4">
+  <p>商品合計</p>
+  <p>送料</p>
+  <p>請求金額合計</p>
+  <p><%= @order_products.sum(&:subtotal)%></p>
+  <p><%= @order_product.shopping_cost %></p>
+  <p><%= @order_product.total_payment %></p>
+  </div>
   </div>
   </div>
