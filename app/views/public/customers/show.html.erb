@@ -5,26 +5,33 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <div>氏名</div>
-      <div>カナ</div>
-      <div>郵便番号</div>
-      <div>住所</div>
-      <div>電話番号</div>
-      <div>メールアドレス</div>
+      <p>氏名</p>
+      <p>カナ</p>
+      <p>郵便番号</p>
+      <p>住所</p>
+      <p>電話番号</p>
+      <p>メールアドレス</p>
     </div>
     <div class="col-md-6">
 
-      <div><%= @customer.last_name %><%= @customer.first_name %></div>
-      <div><%= @customer.last_name_kana %><%= @customer.first_name_kana %></div>
-      <div><%= @customer.postal_code %></div>
-      <div><%= @customer.address %></div>
-      <div><%= @customer.telephone_number %></div>
-      <div><%= @customer.email %></div>
+      <p><%= @customer.last_name %><%= @customer.first_name %></p>
+      <p><%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
+      <p><%= @customer.postal_code %></p>
+      <p><%= @customer.address %></p>
+      <p><%= @customer.telephone_number %></p>
+      <p><%= @customer.email %></p>
      
 
       </div>
       </div>
-      
+      <div class="row">
+    <div class="col-3">
+      <h4>配送先</h4> 
+      <h4>注文履歴</h4>
       </div>
-      <h4>配送先</h4> <div><%= link_to "一覧を見る", public_addresses_path(@customer.id), class:"btn btn-success" %></div>
-      <h4>注文履歴</h4> <div><%= link_to "一覧を見る", public_orders_path(@customer.id), class:"btn btn-success" %></div>
+      <div class="col-3">
+      <p><%= link_to "一覧を見る", public_addresses_path(@customer.id), class:"btn btn-success" %></p>
+      <p><%= link_to "一覧を見る", public_orders_path(@customer.id), class:"btn btn-success" %></p>
+      </div>
+      </div>
+      </div>
