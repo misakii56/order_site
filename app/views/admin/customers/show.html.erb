@@ -19,7 +19,11 @@
       <div><%= @customer.address %></div>
       <div><%= @customer.telephone_number %></div>
       <div><%= @customer.email %></div>
-      <div><%= @customer.is_deleted ? '有効' : '退会' %></div>
+      <div><% if @customer.is_deleted %>
+                 <span style="color: #808080;">退会済</span>
+                <% else %>
+                 <span style="color: green;">有効</span>
+                <% end %></div>
 
       </div>
       </div>

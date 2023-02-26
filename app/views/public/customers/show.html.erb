@@ -1,7 +1,7 @@
 
 
 <h4>登録情報</h4>
- <div><%= link_to "編集する", edit_public_customer_path(@customer.id), class:"btn btn-success" %></div>
+ <div><%= link_to "編集する", customers_edit_path, class:"btn btn-success" %></div>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -20,18 +20,18 @@
       <p><%= @customer.address %></p>
       <p><%= @customer.telephone_number %></p>
       <p><%= @customer.email %></p>
-     
+
 
       </div>
       </div>
       <div class="row">
     <div class="col-3">
-      <h4>配送先</h4> 
+      <h4>配送先</h4>
       <h4>注文履歴</h4>
       </div>
       <div class="col-3">
-      <p><%= link_to "一覧を見る", public_addresses_path(@customer.id), class:"btn btn-success" %></p>
-      <p><%= link_to "一覧を見る", public_orders_path(@customer.id), class:"btn btn-success" %></p>
+      <p><%= link_to "一覧を見る", addresses_path(@customer.id), class:"btn btn-success" %></p>
+      <p><%= link_to "一覧を見る", orders_path(@customer.id), class:"btn btn-success" %></p>
       </div>
       </div>
       </div>

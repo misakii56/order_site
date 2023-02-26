@@ -9,7 +9,7 @@
 <p>電話番号</p>
 <p>メールアドレス</p>
 </div>
-<%= form_with model: @customer, url: public_customer_path(@customer.id), method: :patch do |f| %>
+<%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
 <p><%= f.text_field :last_name %><%= f.text_field :first_name %></p>
 <p><%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></p>
 <p><%= f.text_field :postal_code %></p>
@@ -18,6 +18,6 @@
 <p><%= f.text_field :email %></p>
 <%= f.submit '編集内容を保存', class:"btn btn-success" %>
 <% end %>
-<div><%= link_to "退会する", public_quit_path, class:"btn btn-success" %></div>
+<div><%= link_to "退会する", quit_path, class:"btn btn-success" %></div>
 </div>
 </div>

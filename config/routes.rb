@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 root to: 'public/homes#top'
 
 
-  namespace :public do
+  scope module: :public do
     delete 'cart_items/destroy_all'
     resources :cart_items
     get 'orders/new'
@@ -19,15 +19,15 @@ root to: 'public/homes#top'
     #root to: 'homes#top'
     #root to: 'public/sessions#new'
     get 'homes/about'
-    resources :customers
     get 'customers/quit' => 'customers#quit', as: 'quit'
+    get 'customers/my_page' => 'customers#show', as: 'my_page'
+    get 'customers/edit' => 'customers#edit'
+    patch 'customers' => 'customers#update'
     patch 'customers/out' => 'customers#out', as: 'out'
   end
   namespace :admin do
     get 'homes/top'
     root to: 'homes#top'
-  end
-  namespace :admin do
     resources :genres
     resources :items
     resources :customers

@@ -21,8 +21,12 @@
 <div><%= @item.name %></div>
 <div><%= @item.introduction %></div>
 <div><%= @genre.name %></div>
-<div><%= @item.price %>円</div>
-<div class="text-success"><%= @item.is_active ? '販売中' : '販売停止中' %></div>
+<div><%= @item.with_tax_price %>円</div>
+<div><% if @item.is_active %>
+          <span style="color: green;">販売中</span>
+          <% else %>
+           <span style="color: #808080;">販売停止中</span>
+          <% end %></div>
 </div>
 </div>
 <div class="section1 text-center">

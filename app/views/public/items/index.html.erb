@@ -11,8 +11,7 @@
   <% end %>
 
   <!--customerの商品一覧に変更-->
-<p><%= link_to item.name, public_item_path(item.id) %></p>
-
+<p><%= link_to item.name, item_path(item.id) %></p>
 <p>¥<%= item.with_tax_price %></p>
 <% end %>
 </div>

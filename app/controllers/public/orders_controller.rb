@@ -41,7 +41,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-        @total = 0
          @order_product = Order.find(params[:id])
          @order_products = @order_product.order_products
   end
@@ -59,7 +58,7 @@ class Public::OrdersController < ApplicationController
            order_product.save
          end
          current_customer.cart_items.destroy_all
-         redirect_to public_orders_thanx_path
+         redirect_to orders_thanx_path
      end
   end
   

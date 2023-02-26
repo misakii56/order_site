@@ -30,12 +30,12 @@
   <!--ここからカスタマー用に変える-->
       <div class="p-2">ようこそ、<%= current_customer.last_name %>さん！</div>
         <div class="p-2">
-          <%= link_to public_customer_path(current_customer.id) do %>マイページ
+          <%= link_to my_page_path do %>マイページ
           <% end %>
           </div>
-        <div class="p-2"><%= link_to public_items_path do %>商品一覧
+        <div class="p-2"><%= link_to items_path do %>商品一覧
         <% end %></div>
-      <div class="p-2"><%= link_to public_cart_items_path do %>カート
+      <div class="p-2"><%= link_to cart_items_path do %>カート
       <% end %></div>
       <div class="p-2"><%= link_to destroy_customer_session_path, method: :delete do %>ログアウト
       <% end %></div>
@@ -60,11 +60,11 @@
 
       <% else %>
       <div class="p-2">
-        <%= link_to public_homes_about_path do %>About
+        <%= link_to homes_about_path do %>About
       <% end %>
       </div>
       <div class="p-2">
-        <%= link_to public_items_path do %>商品一覧
+        <%= link_to items_path do %>商品一覧
         <% end %>
         </div>
       <div class="p-2"><%= link_to new_customer_registration_path do %>新規登録

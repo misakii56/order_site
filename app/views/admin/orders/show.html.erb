@@ -10,7 +10,7 @@
 <p>支払方法</p>
 </div>
 <div class="col-8">
-<p><%= link_to @order_product.name, admin_customer_path(@customer.id) %></p>
+<p><%= link_to @customer.last_name, admin_customer_path(@customer.id) %><%= link_to @customer.first_name, admin_customer_path(@customer.id) %></p>
 <p><%= @order_product.created_at.strftime("%Y/%m/%d") %></p>
 <p>〒<%= @order_product.postal_code %> <%= @order_product.address %> <%= @order_product.name %></p>
 <p><%= @order_product.payment_method_i18n %></p>
@@ -28,14 +28,14 @@
     </tr>
     </thead>
     <tbody>
+         <% @order_product.order_products.each do |order_item| %>
       <tr>
-           <% @order_product.order_products.each do |order_item| %>
           <td><%= order_item.item.name %></td>
           <td><%= order_item.price %></td>
           <td><%= order_item.amount %></td>
           <td><%= order_item.subtotal %></td>
-           <% end %>
       </tr>
+        <% end %>
     </tbody>
   </table>
   </div>
@@ -47,7 +47,8 @@
   <div class="col-2">
   <p><%= @order_products.sum(&:subtotal)%></p>
   <p><%= @order_product.shopping_cost %></p>
-  <p><%= @order_product.total_payment %></p>
+  <p><%= @order_product.total_payment+@order_product.shopping_cost %></p>
+  
   </div>
   </div>
   </div>
