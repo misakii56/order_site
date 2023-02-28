@@ -48,11 +48,13 @@
     </thead>
   </table>
   <%= link_to "買い物を続ける", root_path, class:"btn btn-primary" %>
- 
+
   </div>
   </div>
   </div>
   </div>
+  <% if @cart_items.present? %>
   <div class="text-center">
    <%= link_to "情報入力に進む", orders_new_path, class:"btn btn-success", 'data-turbolinks': false %>
    </div>
+   <% end %>

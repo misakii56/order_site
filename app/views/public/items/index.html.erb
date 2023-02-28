@@ -4,14 +4,16 @@
     <div class="col">
 <% @items.each do |item| %>
 
+　<%= link_to item_path(item.id) do %>
     <% if item.image.attached? %>
     <%= image_tag item.image, size: "150x150" %>
   <% else %>
     <%= image_tag 'no_image', size: "150x150" %>
   <% end %>
+  <% end %>
 
   <!--customerの商品一覧に変更-->
-<p><%= link_to item.name, item_path(item.id) %></p>
+<p><%= link_to item.name %></p>
 <p>¥<%= item.with_tax_price %></p>
 <% end %>
 </div>
